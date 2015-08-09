@@ -1,7 +1,7 @@
 // src getlist
 var api = require('../lib/index.js');
-     
-var connection = new api('192.168.0.1','admin','');
+
+var connection = new api('192.168.0.1','admin','', { tls: true });
 connection.connect(function(conn) {
 
    var chan=conn.openChannel();
@@ -15,8 +15,7 @@ connection.connect(function(conn) {
          parsed.forEach(function(item) {
             console.log('Interface/IP: '+item.interface+"/"+item.address);
          });
- 
-      }); 
-   }); 
-}); 
 
+      });
+   });
+});
